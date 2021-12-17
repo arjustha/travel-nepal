@@ -1,0 +1,31 @@
+
+
+<% if current_user %>
+<div class="success">
+   <h1><%= @success_message %> </h1>
+</div>
+
+<h1>Welcome to travel nepal. Choose your destination</h1>
+
+<ul>
+<% @destinations.each do |d| %>
+   <li> <%= link_to "#{d.name}", destination_path(d.id) %> </li>
+<% end %>
+</ul>
+
+<%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
+<% else %>
+<div class="errorrr">
+   <%= @no_user_message %>   
+</div>
+<%= link_to 'Sign up', new_user_registration_path%>
+
+<%= link_to 'Sign in', new_user_session_path%>
+<% end %>
+
+
+<style>
+.errorrr{
+   color="red";
+}
+</style>

@@ -1,0 +1,9 @@
+<h1>Pages#home</h1>
+
+<% if current_user%>
+    <%= link_to 'Sign out', destroy_user_registration_path, 
+    method :delete%>
+<% else%>
+<%= link_to 'Sign up', new_user_registration_path%>
+<%= link_to 'Sign in', mew_user_registration_path%>
+
