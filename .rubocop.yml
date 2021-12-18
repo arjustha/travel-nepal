@@ -1,0 +1,51 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - "bin/**/*"
+    - "db/schema.rb"
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Lint/AmbiguousBlockAssociation:
+  Exclude: ["spec/**/*"] # Rspec syntax is sweetest with a side of "ambiguous block association"
+
+Metrics/AbcSize:
+  Max: 18
+
+Metrics/BlockLength:
+  IgnoredMethods: ["describe", "context", "rails_admin", "factory", "define", "namespace"]
+
+Metrics/ClassLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 14
+
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: required
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - 'db/**/*'
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Exclude:
+    - 'Gemfile'
+
+Style/SymbolArray:
+  MinSize: 4%

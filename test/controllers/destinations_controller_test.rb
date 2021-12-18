@@ -1,5 +1,7 @@
-require "test_helper"
+# frozen_string_literal: true
 
+require "test_helper"
+# this controller is for destination test
 class DestinationsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @destination = destinations(:one)
@@ -16,8 +18,8 @@ class DestinationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create destination" do
-    assert_difference('Destination.count') do
-      post destinations_url, params: { destination: { name: @destination.name } }
+    assert_difference("Destination.count") do
+      post destinations_url, params: {destination: {name: @destination.name}}
     end
 
     assert_redirected_to destination_url(Destination.last)
@@ -34,12 +36,12 @@ class DestinationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update destination" do
-    patch destination_url(@destination), params: { destination: { name: @destination.name } }
+    patch destination_url(@destination), params: {destination: {name: @destination.name}}
     assert_redirected_to destination_url(@destination)
   end
 
   test "should destroy destination" do
-    assert_difference('Destination.count', -1) do
+    assert_difference("Destination.count", -1) do
       delete destination_url(@destination)
     end
 

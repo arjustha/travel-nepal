@@ -1,5 +1,7 @@
-require "application_system_test_case"
+# frozen_string_literal: true
 
+require "application_system_test_case"
+# test for vehicles details
 class VehiclesTest < ApplicationSystemTestCase
   setup do
     @vehicle = vehicles(:one)

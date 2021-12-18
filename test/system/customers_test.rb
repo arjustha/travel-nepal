@@ -1,5 +1,7 @@
-require "application_system_test_case"
+# frozen_string_literal: true
 
+require "application_system_test_case"
+# test for customers info
 class CustomersTest < ApplicationSystemTestCase
   setup do
     @customer = customers(:one)
