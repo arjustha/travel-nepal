@@ -4,9 +4,7 @@
 <div class="success">
    <h1><%= @success_message %> </h1>
 </div>
-
 <h1>Welcome to travel nepal. Choose your destination</h1>
-
 <ul>
 <% @destinations.each do |d| %>
    <li> <%= link_to "#{d.name}", destination_path(d.id) %> </li>
@@ -22,7 +20,6 @@
 
 <%= link_to 'Sign in', new_user_session_path%>
 <% end %>
-
 
 <style>
 .errorrr{
