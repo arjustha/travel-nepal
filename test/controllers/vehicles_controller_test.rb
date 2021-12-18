@@ -1,5 +1,7 @@
-require "test_helper"
+# frozen_string_literal: true
 
+require "test_helper"
+# this is for controller test of vehicles
 class VehiclesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @vehicle = vehicles(:one)
@@ -16,8 +18,10 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create vehicle" do
-    assert_difference('Vehicle.count') do
-      post vehicles_url, params: { vehicle: { contact: @vehicle.contact, driver: @vehicle.driver, licence_plate: @vehicle.licence_plate } }
+    assert_difference("Vehicle.count") do
+      post vehicles_url,
+           params: {vehicle: {contact: @vehicle.contact, driver: @vehicle.driver,
+                              licence_plate: @vehicle.licence_plate}}
     end
 
     assert_redirected_to vehicle_url(Vehicle.last)
@@ -34,12 +38,13 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update vehicle" do
-    patch vehicle_url(@vehicle), params: { vehicle: { contact: @vehicle.contact, driver: @vehicle.driver, licence_plate: @vehicle.licence_plate } }
+    patch vehicle_url(@vehicle),
+          params: {vehicle: {contact: @vehicle.contact, driver: @vehicle.driver, licence_plate: @vehicle.licence_plate}}
     assert_redirected_to vehicle_url(@vehicle)
   end
 
   test "should destroy vehicle" do
-    assert_difference('Vehicle.count', -1) do
+    assert_difference("Vehicle.count", -1) do
       delete vehicle_url(@vehicle)
     end
 

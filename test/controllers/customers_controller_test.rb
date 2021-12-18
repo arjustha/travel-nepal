@@ -1,5 +1,7 @@
-require "test_helper"
+# frozen_string_literal: true
 
+require "test_helper"
+# this controller contens test for customers
 class CustomersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @customer = customers(:one)
@@ -16,8 +18,10 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create customer" do
-    assert_difference('Customer.count') do
-      post customers_url, params: { customer: { contact_number: @customer.contact_number, destination_id: @customer.destination_id, name: @customer.name, numbers: @customer.numbers } }
+    assert_difference("Customer.count") do
+      post customers_url,
+           params: {customer: {contact_number: @customer.contact_number, destination_id: @customer.destination_id,
+                               name: @customer.name, numbers: @customer.numbers}}
     end
 
     assert_redirected_to customer_url(Customer.last)
@@ -34,12 +38,14 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer" do
-    patch customer_url(@customer), params: { customer: { contact_number: @customer.contact_number, destination_id: @customer.destination_id, name: @customer.name, numbers: @customer.numbers } }
+    patch customer_url(@customer),
+          params: {customer: {contact_number: @customer.contact_number, destination_id: @customer.destination_id,
+                              name: @customer.name, numbers: @customer.numbers}}
     assert_redirected_to customer_url(@customer)
   end
 
   test "should destroy customer" do
-    assert_difference('Customer.count', -1) do
+    assert_difference("Customer.count", -1) do
       delete customer_url(@customer)
     end
 

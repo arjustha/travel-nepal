@@ -1,5 +1,7 @@
-require "application_system_test_case"
+# frozen_string_literal: true
 
+require "application_system_test_case"
+# test for destionation details
 class DestinationsTest < ApplicationSystemTestCase
   setup do
     @destination = destinations(:one)
