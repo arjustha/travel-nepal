@@ -1,9 +1,22 @@
 <h1>Pages#home</h1>
 
 <% if current_user%>
+<p>
     <%= link_to 'Sign out', destroy_user_registration_path, 
     method :delete%>
+</p>
+<p>
+    <% link_to "Edit Account", edit_user_registration_path %>
+</p>
+<br />
+<%image_tag(current_user.avatar_thumbnail) %>
 <% else%>
-<%= link_to 'Sign up', new_user_registration_path%>
-<%= link_to 'Sign in', mew_user_registration_path%>
+<p>
+    <%= link_to 'Sign up', new_user_registration_path%>
+</p>
+<p>
+    <%= link_to 'Sign in', new_user_registration_path%>
+</p>
+<%end%>
 
+<%= link_to 'Posts', posts_path %>

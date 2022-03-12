@@ -3,8 +3,10 @@
 class CreateVehicles < ActiveRecord::Migration[6.1]
   def change
     create_table :vehicles do |t|
-      t.string :driver
-      t.string :licence_plate
+      t.integer :driver_age
+      t.string :location
+      t.string :check_in
+      t.string :check_out
       t.string :contact
 
       t.timestamps

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tour Packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Place</th>
+      <th>Price</th>
+      <th>Available dates</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tour_packages.each do |tour_package| %>
+      <tr>
+        <td><%= tour_package.name %></td>
+        <td><%= tour_package.description %></td>
+        <td><%= tour_package.place_id %></td>
+        <td><%= tour_package.price %></td>
+        <td><%= tour_package.available_dates %></td>
+        <td><%= link_to 'Show', tour_package %></td>
+        <td><%= link_to 'Edit', edit_tour_package_path(tour_package) %></td>
+        <td><%= link_to 'Destroy', tour_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tour Package', new_tour_package_path %>

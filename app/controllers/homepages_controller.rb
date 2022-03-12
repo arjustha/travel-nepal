@@ -7,10 +7,11 @@ class HomepagesController < ApplicationController
   def index
     if current_user
       @destinations = Destination.all
-      @success_message = 'You are logged in.'
+      @success_message = "You are logged in."
     else
-      @xyz = 'hello hello. login garnu pardaina??'
+      @xyz = "Please log in"
       redirect_to new_user_session_path
     end
+    @posts = Post.latest
   end
 end

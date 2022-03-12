@@ -1,0 +1,32 @@
+
+
+
+<main role="main">
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3"> popular places </h1>
+                <p> template for inserting info </p>
+               
+        </div>
+    </div>
+
+    <section di="latest-posts">
+        <div class="container">
+            <div class="row">
+            
+            </div>
+        </div>
+    </section>
+    <div class="container">
+    <% latest_posts.each do |post| %>
+        <div class="row">
+            <div class="col-md-4">
+            <h2><%= post.title %></h2>
+            <p> <%= post.body %> </p>
+            <p><a class="btn btn-secondary" href="/posts/<%=post.id%>" role="button">View details> </a></p>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</main>

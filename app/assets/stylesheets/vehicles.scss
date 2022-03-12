@@ -1,3 +1,56 @@
 // Place all the styles related to the Vehicles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.tab-pane {
+    height: 300px
+}
+
+.form-control {
+    height: 45px;
+    position: relative
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #9a1550
+}
+
+.custom-button {
+    height: 45px;
+    background-color: #9a1550;
+    border: none;
+    color: #fff
+}
+
+.custom-button:hover,
+.custom-button:focus {
+    background-color: #9a1550;
+    box-shadow: none;
+    outline: none
+}
+
+.scroll-y {
+    overflow-y: scroll;
+    height: 300px
+}
+
+.radio {
+    display: inline-block;
+    margin-left: 13px;
+    cursor: pointer;
+    font-weight: 500
+}
+
+.btn.radio-btn {
+    position: relative
+}
+
+.btn.btn-primary {
+    height: 60px;
+    font-size: 20px;
+    padding: 10px
+}
