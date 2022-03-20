@@ -19,7 +19,9 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
-  def edit; end
+  def edit
+    authorize! :update, @post
+  end
 
   # POST /posts or /posts.json
   def create
@@ -68,7 +70,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body, :photo, :photo_cache)
+    params.require(:post).permit(:title, :body, :image, pictures: [])
   end
 end
-

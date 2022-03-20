@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "../stylesheets/variables";
+
+
+
+.navscroll{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
 .card {
     margin: auto;
     border: solid 1px #dbdad7;
@@ -95,5 +105,13 @@ select:focus {
 .form-control-dark:focus{
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255,255,255, .25);
+
 }
 
+.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}

@@ -1,6 +1,6 @@
 <p>
   <strong>Title:</strong>
-  <%byebug%>
+
   <%= @post.title %>
 </p>
 
@@ -9,12 +9,31 @@
   <%= @post.body %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user.username %>
-</p>
+<br />
+<div class="row">
+  <div class="col-md-3">
+    <div class="img-tag">
+      <%= link_to image_tag(@post.image_as_thumbnail), @post.image if @post.image.attached? %>
+    </div>
+    </div>
+    <% @post.pictures_as_thumbnails.each do |picture|%>
+    <div class="col-md-3">
+    <div class="img-tag">
+    <%= link_to image_tag(picture), picture %>
+    </div>
+    </div>
+    <% end %>
+  </div>
+  </div>
 
 
 
-<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-success" %> |
-<%= link_to 'Back', posts_path %>
+  <p>
+    <strong>User:</strong>
+    <%= @post.user.username %>
+  </p>
+
+
+
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-success" %> |
+  <%= link_to 'Back', posts_path %>

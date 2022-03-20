@@ -19,7 +19,7 @@ class User < ApplicationRecord
     # if avatar.attached?
     #   avatar.variant(resize: "150*150!").processed
     # else
-      "/default_profile.jpg"
+    #  "/default_profile.jpg"
     # end
   end
 
@@ -41,10 +41,8 @@ class User < ApplicationRecord
       content_type: "image/jpg"
     )
   end
-end
 
-def set_is_admin_false
-  return if  is_admin?
-
-  user.is_admin = false
+  def set_is_admin_false
+    self.is_admin = true
+  end
 end

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "../stylesheets/variables";
 
 
 .tab-pane {
@@ -53,4 +54,95 @@
     height: 60px;
     font-size: 20px;
     padding: 10px
+}
+
+.title-block {
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+
+    .vehicle-name {
+        font-weight: 900;
+        font-size: 30px;
+    }
+}
+
+.tab-pane {
+    .input-form {
+        display: flex;
+        flex-direction: column;
+
+        .btn-lable {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .input-field {
+            font-size: 20px;
+            margin-bottom: 10px;
+            border: 1px solid #80808099 !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            outline: none;
+            color: #000000e0;
+            background-color: white;
+        }
+    }
+
+    .btn-block {
+        margin: 20px 0;
+    }
+
+    .radio-tab-block {
+        margin-bottom: 10px;
+
+        .radio-wrapper {
+            display: flex;
+
+            .radio-text {
+                margin-right: 40px;
+
+                .radio {
+                    font-size: 18px;
+
+                    .select-radio {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        input[type='radio'] {
+            // -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            outline: none;
+            border: 2px solid red;
+
+        }
+
+        input[type='radio']:before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin:  auto;
+            border-radius: 50%;
+        }
+
+        input[type='radio']:checked:before {
+            background: $dark-primary;
+        }
+    }
+}
+
+.main-btn {
+    border: 1px solid transparent;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    background: $primary-color;
 }

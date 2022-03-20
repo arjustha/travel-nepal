@@ -11,32 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :place_id %>
-    <%= form.text_field :place_id %>
+  <div class="form-group">
+    <%= form.label :destination_id %>
+    <select name="destination_id">
+    <% @destinations.each do |destination| %>
+    <option value="<%= destination.id %>"> <%= destination.name %></option>
+    <% end %>
+    </select>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :available_dates %>
+    <%= form.text_field :available_dates, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :duration %>
+    <%= form.text_field :duration, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :available_dates %>
-    <%= form.text_field :available_dates %>
+    <%= form.label :image %>
+    <%= form.file_field :image, class: "form_control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Package", class: "btn btn-lg btn-success "  %>
   </div>
+
 <% end %>

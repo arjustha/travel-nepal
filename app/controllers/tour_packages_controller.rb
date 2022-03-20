@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# controller for tour packages
 class TourPackagesController < ApplicationController
-  before_action :set_tour_package, only: %i[ show edit update destroy ]
+  before_action :set_tour_package, only: %i[show edit update destroy]
+  before_action :destinations, only: %i[new edit]
 
   # GET /tour_packages or /tour_packages.json
   def index
@@ -7,8 +11,7 @@ class TourPackagesController < ApplicationController
   end
 
   # GET /tour_packages/1 or /tour_packages/1.json
-  def show
-  end
+  def show; end
 
   # GET /tour_packages/new
   def new
@@ -16,13 +19,12 @@ class TourPackagesController < ApplicationController
   end
 
   # GET /tour_packages/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tour_packages or /tour_packages.json
   def create
     @tour_package = TourPackage.new(tour_package_params)
-
+    @tour_package.destination = Destination.find(params[:destination_id])
     respond_to do |format|
       if @tour_package.save
         format.html { redirect_to @tour_package, notice: "Tour package was successfully created." }
@@ -57,13 +59,20 @@ class TourPackagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tour_package
-      @tour_package = TourPackage.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def tour_package_params
-      params.require(:tour_package).permit(:name, :description, :place_id, :price, :available_dates)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tour_package
+    @tour_package = TourPackage.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def tour_package_params
+    params.require(:tour_package).permit(
+      :name, :description, :destination_id, :duration, :price, :available_dates, :image
+    )
+  end
+
+  def destinations
+    @destinations = Destination.all
+  end
 end

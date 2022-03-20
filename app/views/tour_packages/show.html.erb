@@ -12,7 +12,12 @@
 
 <p>
   <strong>Place:</strong>
-  <%= @tour_package.place_id %>
+  <%= @tour_package.destination.name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @tour_package.duration %>
 </p>
 
 <p>
@@ -24,6 +29,11 @@
   <strong>Available dates:</strong>
   <%= @tour_package.available_dates %>
 </p>
+
+<br />
+<%= link_to image_tag(@tour_package.image_as_thumbnail), @tour_package.image if @tour_package.image.attached? %>
+<br />
+
 
 <%= link_to 'Edit', edit_tour_package_path(@tour_package) %> |
 <%= link_to 'Back', tour_packages_path %>

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_vehicles
 
   def set_vehicles
-    @vehicles_types = %w[jeep car sumo]
+    @vehicles_types = %w[Jeep Car Sumo]
   end
 
   protected
@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: [:avatar])
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
   end
 end

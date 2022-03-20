@@ -1,81 +1,83 @@
 <%= form_with(model: vehicle) do |form| %>
-  <% if vehicle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+<% if vehicle.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
 
-      <ul>
-        <% vehicle.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% vehicle.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="container mt-5">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-8">
-        <div class="bg-white">
-          <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="faq_tab_1-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_1" type="button" 
-                role="tab" aria-controls="faq_tab_1" aria-selected="true">
-                <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span><%= @vehicle_type %></span> </div>
-                 </button> 
-            </li>
-            <li class="nav-item" role="presentation"> 
-              <button class="nav-link" id="faq_tab_4-tab" data-bs-toggle="tab" data-bs-target="#faq_tab_4" type="button" 
-              role="tab" aria-controls="faq_tab_4" aria-selected="false">
-              <div class="d-flex flex-column lh-lg"> <i class='bx bxs-plane-alt'></i> <span>Sumo</span> </div>
-              </button>
-            </li>
-          </ul>
-          <div class="tab-pane fade active show" id="faq_tab_1" role="tabpanel" aria-labelledby="faq_tab_1-tab">
-            <div class="container p-3">
-              <div class="input-group mb-3"> 
-                <%= form.label :check_in %>
-                <%= form.text_field :check_in %>
-                <%= form.label :check_out%>
-                <%= form.text_field :check_out%>
-              </div>
-              <div class="input-group mb-3"> 
-                <%= form.label :location %>
-                <%= form.text_field :location %>
-                <%= form.label :contact %>
-                <%= form.text_field :contact %>
-              </div>
-              <div class="row">
-                <div class="col-md-6 col-12 mb-4">
-                  <p class="h-blue">Travel Date</p> <input class="inputbox textmuted" type="date">
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-8">
+      <div class="bg-white">
+        <div class="title-block">
+          <i class='bx bxs-plane-alt'></i> <span class="vehicle-name"><%= @vehicle_type %></span>
+        </div>
+        <div class="tab-pane fade active show" id="faq_tab_1" role="tabpanel" aria-labelledby="faq_tab_1-tab">
+          <div class="p-3">
+            <div class="row">
+              <div class="col-md-6 col-sm-6">
+                <div class="input-form">
+                  <%= form.label :check_in,   :class => "btn-lable" %>
+                  <%= form.text_field :check_in ,:class => "input-field" %>
+                </div>
+                <div class="input-form">
+                  <%= form.label :location  , :class => "btn-lable"%>
+                  <%= form.text_field :location ,:class => "input-field"%>
                 </div>
               </div>
-              <div class="tab-content" id="myTabContent">
-                <div class="container rounded shadow-sm">
-                  <div class="row"> <span>Select Shift</span>
-                     <div class="col-md-2 pe-0 col-sm-12">
-                        <div class="btn radio-btn mb-3"> 
-                          <label class="radio"> <input type="radio" value="a" name="book" checked> Both <span></span> 
-                          </label> 
-                        </div>
-                      </div>
-                      <div class="col-md-2 pe-0 col-sm-12">
-                        <div class="btn radio-btn mb-3"> 
-                          <label class="radio"> <input type="radio" value="a" name="book"> Day <span></span> </label> 
-                        </div>
-                      </div>
-                      <div class="col-md-2 pe-0 col-sm-12">
-                      <div class="btn radio-btn mb-3"> 
-                        <label class="radio"> <input type="radio" value="a" name="book"> Night <span></span> </label> </div>
-                      </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="input-form">
+                  <%= form.label :check_out , :class => "btn-lable"%>
+                  <%= form.text_field :check_out,:class => "input-field"%>
+                </div>
+                <div class="input-form">
+                  <%= form.label :contact  , :class => "btn-lable"%>
+                  <%= form.text_field :contact,:class => "input-field"%>
+                </div>
+              </div>
+              <div class="col-md-12 ">
+                <div class="input-form">
+                  <p class="btn-lable">Travel Date</p>
+                  <input class="input-field" type="date">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-form radio-tab-block">
+                  <label class="btn-lable">Select Shift</label>
+                  <div class="radio-wrapper">
+                    <div class=" radio-text">
+                      <label class="radio"> <input type="radio" class="select-radio" value="a" name="book" checked> Both
+                        <span> </span>
+                      </label>
                     </div>
-                    <div class="form-group">
-                      <%= form.submit %>
+                    <div class=" radio-text">
+                      <label class="radio"> <input type="radio" class="select-radio" value="a" name="book"> Day
+                        <span></span> </label>
+                    </div>
+                    <div class=" radio-text">
+                      <label class="radio"> <input type="radio" class="select-radio" value="a" name="book"> Night
+                        <span></span> </label>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="form-group btn-block">
+              <%= form.submit :class => "main-btn"%>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
 <% end %>
+

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AddPhotoToPost < ActiveRecord::Migration[6.1]
   def change
-    add_column :posts, :photo, :string
+    add_column :posts, :image, :string
   end
 end
